@@ -2,6 +2,19 @@
 Open Source version of the Yoba Game.
 (Yes, CC BY-NC-SA license is not exactly opensource, I know)
 
+**Yoba Game** is a casual puzzle game inspired by *Suika-style* mechanics. Merge identical yobas, build combos, and aim to create the legendary **Oche Tolsty Yoba** while achieving the highest possible score.
+
+- 🎮 Itch.io: https://zack-fire.itch.io/yoba-game  
+- 📱 Google Play: https://play.google.com/store/apps/details?id=com.glbapps.yobagame
+
+---
+
+## Screenshots
+
+![Screenshot 1](https://img.itch.zone/aW1hZ2UvMzUzOTY5NS8yMTA3OTY1MS5wbmc=/original/jK8rW0.png)
+![Screenshot 2](https://img.itch.zone/aW1hZ2UvMzUzOTY5NS8yMTA3OTY1My5wbmc=/original/GM5wCM.png)
+
+
 ## License
 
 [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
