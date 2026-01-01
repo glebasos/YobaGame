@@ -1,0 +1,100 @@
+[gd_scene load_steps=10 format=3 uid="uid://dflo373wglutq"]
+
+[ext_resource type="Script" uid="uid://deo58rk6bl45s" path="res://Models/Yobas/Yoba.cs" id="1_pyc1y"]
+[ext_resource type="Texture2D" uid="uid://hvw2i0iey7t5" path="res://Resources/Yobas/YobaSpurdo.png" id="2_pyc1y"]
+[ext_resource type="Shader" uid="uid://c4hw4mmwy2r2f" path="res://Scenes/Yobas/Explosion.gdshader" id="2_yum3o"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_shg56"]
+bounce = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x4kpj"]
+resource_local_to_scene = true
+shader = ExtResource("2_yum3o")
+shader_parameter/fragment_number = Vector2(11, 11)
+shader_parameter/dissolve_state = 1.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pyc1y"]
+radius = 40.0
+height = 80.0
+
+[sub_resource type="Animation" id="Animation_mcfnb"]
+resource_name = "Explosion"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.160321, 0.16), Vector2(0.21, 0.21)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/dissolve_state")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.406126, 0.406126),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_85gom"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/dissolve_state")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.160321, 0.16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a26mj"]
+_data = {
+&"Explosion": SubResource("Animation_mcfnb"),
+&"RESET": SubResource("Animation_85gom")
+}
+
+[node name="YobaSpurdo" type="RigidBody2D"]
+mass = 1.627
+physics_material_override = SubResource("PhysicsMaterial_shg56")
+contact_monitor = true
+max_contacts_reported = 6
+script = ExtResource("1_pyc1y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_x4kpj")
+scale = Vector2(0.160321, 0.16)
+texture = ExtResource("2_pyc1y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_pyc1y")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_a26mj")
+}

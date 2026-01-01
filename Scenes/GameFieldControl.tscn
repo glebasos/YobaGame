@@ -1,0 +1,100 @@
+[gd_scene load_steps=9 format=3 uid="uid://brvulewrca7nx"]
+
+[ext_resource type="StyleBox" uid="uid://bg0qfnl25wwbs" path="res://Scenes/StyleBoxes/WoodenBoxTexture.tres" id="1_bld2f"]
+[ext_resource type="Script" uid="uid://befw250h4xpjs" path="res://Models/GameFieldControl.cs" id="1_gqvcv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bld2f"]
+bg_color = Color(0.952941, 0.952941, 0.952941, 0.160784)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rgh2o"]
+size = Vector2(40, 432)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bld2f"]
+radius = 20.0
+height = 128.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbw6q"]
+size = Vector2(40, 432)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1gob"]
+size = Vector2(40, 496)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bld2f"]
+size = Vector2(496, 32)
+
+[node name="GameFieldControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_gqvcv")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -248.0
+offset_top = -456.0
+offset_right = 248.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bld2f")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -248.0
+offset_top = -456.0
+offset_right = 248.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = ExtResource("1_bld2f")
+
+[node name="WallLeft" type="StaticBody2D" parent="."]
+position = Vector2(424, 192)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft"]
+position = Vector2(-12, 240)
+shape = SubResource("RectangleShape2D_rgh2o")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WallLeft"]
+position = Vector2(-12, 64)
+shape = SubResource("CapsuleShape2D_bld2f")
+
+[node name="WallRight" type="StaticBody2D" parent="."]
+position = Vector2(862, 193)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight"]
+position = Vector2(6, 239)
+shape = SubResource("RectangleShape2D_pbw6q")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WallRight"]
+position = Vector2(6, 63)
+shape = SubResource("CapsuleShape2D_bld2f")
+
+[node name="WallBottom" type="StaticBody2D" parent="."]
+position = Vector2(440, 634)
+rotation = -1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallBottom"]
+position = Vector2(6.00128, 200)
+shape = SubResource("RectangleShape2D_v1gob")
+
+[node name="DeathArea" type="Area2D" parent="."]
+position = Vector2(400, 176)
+
+[node name="DeathCollisionShape" type="CollisionShape2D" parent="DeathArea"]
+position = Vector2(240, -40)
+shape = SubResource("RectangleShape2D_bld2f")

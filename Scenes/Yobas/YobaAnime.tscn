@@ -1,0 +1,100 @@
+[gd_scene load_steps=10 format=3 uid="uid://cqk4eec5nadt3"]
+
+[ext_resource type="Script" uid="uid://deo58rk6bl45s" path="res://Models/Yobas/Yoba.cs" id="1_lmj6b"]
+[ext_resource type="Texture2D" uid="uid://cqnhfj8dxjgwo" path="res://Resources/Yobas/YobaAnime.png" id="2_lmj6b"]
+[ext_resource type="Shader" uid="uid://c4hw4mmwy2r2f" path="res://Scenes/Yobas/Explosion.gdshader" id="2_slkfv"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kfj3r"]
+bounce = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6k7g7"]
+resource_local_to_scene = true
+shader = ExtResource("2_slkfv")
+shader_parameter/fragment_number = Vector2(10, 10)
+shader_parameter/dissolve_state = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_asqny"]
+radius = 24.0
+
+[sub_resource type="Animation" id="Animation_0vafx"]
+resource_name = "Explosion"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.0536313, 0.0536313), Vector2(0.074, 0.074)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/dissolve_state")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.406126, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_voq2e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.0536313, 0.0536313)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/dissolve_state")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sojjx"]
+_data = {
+&"Explosion": SubResource("Animation_0vafx"),
+&"RESET": SubResource("Animation_voq2e")
+}
+
+[node name="YobaAnime" type="RigidBody2D"]
+mass = 1.275
+physics_material_override = SubResource("PhysicsMaterial_kfj3r")
+contact_monitor = true
+max_contacts_reported = 6
+script = ExtResource("1_lmj6b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_6k7g7")
+position = Vector2(1.19209e-07, 1.19209e-07)
+scale = Vector2(0.0536313, 0.0536313)
+texture = ExtResource("2_lmj6b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_asqny")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_sojjx")
+}

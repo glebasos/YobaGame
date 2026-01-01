@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbocagmq5khsu"]
+
+[ext_resource type="Script" uid="uid://dtivmx545nh63" path="res://Models/ShakeCamera.cs" id="1_ahfe4"]
+
+[node name="ShakeCamera" type="Camera2D"]
+anchor_mode = 0
+script = ExtResource("1_ahfe4")

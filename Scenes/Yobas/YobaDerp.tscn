@@ -1,0 +1,99 @@
+[gd_scene load_steps=10 format=3 uid="uid://b87ljqk5oh47r"]
+
+[ext_resource type="Script" uid="uid://deo58rk6bl45s" path="res://Models/Yobas/Yoba.cs" id="1_5jcam"]
+[ext_resource type="Texture2D" uid="uid://cwc1hweosu0p7" path="res://Resources/Yobas/YobaDerp.png" id="2_5jcam"]
+[ext_resource type="Shader" uid="uid://c4hw4mmwy2r2f" path="res://Scenes/Yobas/Explosion.gdshader" id="2_wna1f"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8g8pf"]
+bounce = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_61un2"]
+resource_local_to_scene = true
+shader = ExtResource("2_wna1f")
+shader_parameter/fragment_number = Vector2(13, 13)
+shader_parameter/dissolve_state = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fn63g"]
+radius = 56.0
+
+[sub_resource type="Animation" id="Animation_5lftx"]
+resource_name = "Explosion"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.121739, 0.121739), Vector2(0.152, 0.152)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/dissolve_state")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.406126, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jopoe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/dissolve_state")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.121739, 0.121739)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aljyr"]
+_data = {
+&"Explosion": SubResource("Animation_5lftx"),
+&"RESET": SubResource("Animation_jopoe")
+}
+
+[node name="YobaDerp" type="RigidBody2D"]
+mass = 2.852
+physics_material_override = SubResource("PhysicsMaterial_8g8pf")
+contact_monitor = true
+max_contacts_reported = 6
+script = ExtResource("1_5jcam")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_61un2")
+scale = Vector2(0.121739, 0.121739)
+texture = ExtResource("2_5jcam")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fn63g")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_aljyr")
+}

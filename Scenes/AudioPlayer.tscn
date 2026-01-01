@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://lavgxx7nore7"]
+
+[ext_resource type="Script" uid="uid://dnbwpvwf5qn5x" path="res://Models/AudioPlayer.cs" id="1_jvly4"]
+
+[node name="AudioPlayer" type="Node"]
+script = ExtResource("1_jvly4")

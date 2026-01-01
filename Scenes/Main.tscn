@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://mr4cowovu3wn"]
+
+[ext_resource type="Script" uid="uid://c0pumo1p7mw61" path="res://Models/Main.cs" id="1_g4eh4"]
+[ext_resource type="PackedScene" uid="uid://xg5x1a7bm1ng" path="res://Scenes/ExplosionManager.tscn" id="2_bmxlf"]
+[ext_resource type="PackedScene" uid="uid://dryj4q8j7hqqb" path="res://Scenes/Player.tscn" id="2_idj7w"]
+[ext_resource type="Texture2D" uid="uid://ck52k8067ies0" path="res://Resources/Backgrounds/flat1.jpg" id="2_kln2b"]
+[ext_resource type="PackedScene" uid="uid://cdq24q5cs2vjg" path="res://Scenes/YobaSpawner.tscn" id="4_rgh2o"]
+[ext_resource type="PackedScene" uid="uid://dkpp62n7r2dsa" path="res://Scenes/NextYoba.tscn" id="5_pbw6q"]
+[ext_resource type="PackedScene" uid="uid://cs3ym84nhef7v" path="res://Scenes/EvolutionNode.tscn" id="6_v1gob"]
+[ext_resource type="PackedScene" uid="uid://brvulewrca7nx" path="res://Scenes/GameFieldControl.tscn" id="6_vy5pj"]
+[ext_resource type="PackedScene" uid="uid://cv01rbfyojobn" path="res://Scenes/PauseMenu.tscn" id="7_jw32o"]
+[ext_resource type="PackedScene" uid="uid://3tibha2ttk6m" path="res://Scenes/HeartsControl.tscn" id="11_grg3l"]
+[ext_resource type="PackedScene" uid="uid://bqdgo1w4xiej6" path="res://Scenes/HeartContainer.tscn" id="12_frkhe"]
+[ext_resource type="PackedScene" uid="uid://fdx3gf3c5m0i" path="res://Scenes/LeftRightArrowContainer.tscn" id="13_frkhe"]
+[ext_resource type="Texture2D" uid="uid://ddl24ryvocxqj" path="res://Resources/Misc/yellow-!blank.png" id="14_h1m7h"]
+[ext_resource type="Texture2D" uid="uid://b61ujpyuuwr5r" path="res://Resources/Misc/yellow-blank-pushed.png" id="15_erwvk"]
+[ext_resource type="PackedScene" uid="uid://5sqvg4v56803" path="res://Scenes/ComboMeter.tscn" id="16_erwvk"]
+[ext_resource type="PackedScene" uid="uid://d1nr2veh8ll48" path="res://Scenes/ScoreControl.tscn" id="17_2w5on"]
+[ext_resource type="Texture2D" uid="uid://cvtoleo2g6l6b" path="res://Resources/Misc/pause-button.png" id="18_0sclb"]
+[ext_resource type="PackedScene" uid="uid://cbocagmq5khsu" path="res://Scenes/ShakeCamera.tscn" id="18_346fj"]
+[ext_resource type="PackedScene" uid="uid://jog4n65sv71h" path="res://Scenes/UI/StatsControl.tscn" id="19_0sclb"]
+
+[node name="Main" type="Node" unique_id=1753490289]
+script = ExtResource("1_g4eh4")
+
+[node name="BackgroundControl" type="Control" parent="." unique_id=162604970]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="BackgroundControl" unique_id=150446661]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kln2b")
+
+[node name="HeartsControl" parent="." unique_id=593435521 instance=ExtResource("11_grg3l")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
+HeartScene = ExtResource("12_frkhe")
+
+[node name="ExplosionManager" parent="." unique_id=1940384180 instance=ExtResource("2_bmxlf")]
+
+[node name="YobaSpawner" parent="." unique_id=1587776843 instance=ExtResource("4_rgh2o")]
+
+[node name="Player" parent="." unique_id=1489452324 instance=ExtResource("2_idj7w")]
+z_index = 10
+y_sort_enabled = true
+position = Vector2(486, 62)
+
+[node name="NextYoba" parent="." unique_id=367926653 instance=ExtResource("5_pbw6q")]
+position = Vector2(1058.75, 152)
+
+[node name="GameFieldControl" parent="." unique_id=1577920507 instance=ExtResource("6_vy5pj")]
+
+[node name="RadialUiControl" parent="." unique_id=167738560 instance=ExtResource("6_v1gob")]
+offset_left = 432.0
+offset_top = 180.0
+offset_right = 432.0
+offset_bottom = 180.0
+start_angle = -60.0
+
+[node name="LeftRightArrowContainer" parent="." unique_id=1656038311 instance=ExtResource("13_frkhe")]
+anchors_preset = 2
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_left = 202.0
+offset_top = -128.0
+offset_right = 202.0
+offset_bottom = -128.0
+grow_horizontal = 1
+grow_vertical = 0
+scale = Vector2(6, 6)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="." unique_id=1094586087]
+position = Vector2(993, 424)
+scale = Vector2(5, 5)
+texture_normal = ExtResource("14_h1m7h")
+texture_pressed = ExtResource("15_erwvk")
+action = "Space"
+visibility_mode = 1
+
+[node name="ComboMeter" parent="." unique_id=428885847 instance=ExtResource("16_erwvk")]
+position = Vector2(200, 270)
+
+[node name="ScoreControl" parent="." unique_id=161046705 instance=ExtResource("17_2w5on")]
+offset_left = 16.0
+offset_top = 72.0
+offset_right = -1120.0
+offset_bottom = -520.0
+
+[node name="ShakeCamera" parent="." unique_id=18048959 instance=ExtResource("18_346fj")]
+
+[node name="PauseButton" type="TextureButton" parent="." unique_id=1766209847]
+anchors_preset = -1
+anchor_left = 0.95
+anchor_right = 1.0
+anchor_bottom = 0.0987654
+grow_horizontal = 0
+size_flags_horizontal = 4
+texture_normal = ExtResource("18_0sclb")
+texture_pressed = ExtResource("18_0sclb")
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="PauseMenu" parent="." unique_id=1517318790 instance=ExtResource("7_jw32o")]
+visible = false
+z_index = 256
+
+[node name="StatsControl" parent="." unique_id=1611472577 instance=ExtResource("19_0sclb")]
+visible = false
+z_index = 256

@@ -1,0 +1,222 @@
+[gd_scene load_steps=14 format=3 uid="uid://bcq1xprtapkt2"]
+
+[ext_resource type="Script" uid="uid://bvfw2a2q5eb1d" path="res://Models/UI/SettingsControl.cs" id="1_5te1v"]
+[ext_resource type="Texture2D" uid="uid://ck52k8067ies0" path="res://Resources/Backgrounds/flat1.jpg" id="2_buq30"]
+[ext_resource type="Texture2D" uid="uid://dcliu53d3lner" path="res://Resources/Misc/check.png" id="3_buq30"]
+[ext_resource type="Texture2D" uid="uid://2pxil6tjph3x" path="res://Resources/Misc/remove.png" id="4_islo2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7080n"]
+texture = ExtResource("2_buq30")
+modulate_color = Color(0.300781, 0.300781, 0.300781, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0fmf"]
+bg_color = Color(0.0833967, 0.0504354, 0.15625, 0.501961)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 20.0
+expand_margin_top = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="SystemFont" id="SystemFont_5te1v"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_buq30"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_islo2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5te1v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_twd5h"]
+bg_color = Color(0.75, 0.667647, 0.220588, 1)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msiuq"]
+bg_color = Color(0.558594, 0.497258, 0.164292, 1)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_buq30"]
+bg_color = Color(1, 0.890196, 0.294118, 1)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[node name="SettingsControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5te1v")
+
+[node name="BackgroundPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7080n")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -252.0
+offset_right = 384.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m0fmf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MusicContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MusicContainer"]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="MarginContainer/VBoxContainer/MusicContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = SubResource("SystemFont_5te1v")
+theme_override_font_sizes/font_size = 40
+text = "MUSIC"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MusicContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MusicContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
+text = "0"
+
+[node name="MusicSlider" type="HSlider" parent="MarginContainer/VBoxContainer/MusicContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 20.0
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MusicContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
+text = "100"
+
+[node name="SoundContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/SoundContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/SoundContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = SubResource("SystemFont_5te1v")
+theme_override_font_sizes/font_size = 40
+text = "SOUND"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/SoundContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/SoundContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
+text = "0"
+
+[node name="SoundSlider" type="HSlider" parent="MarginContainer/VBoxContainer/SoundContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 20.0
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/SoundContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
+text = "100"
+
+[node name="VibrationContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VibrationContainer"]
+layout_mode = 2
+
+[node name="VibrationCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/VibrationContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_buq30")
+theme_override_icons/checked = ExtResource("3_buq30")
+theme_override_icons/unchecked = ExtResource("4_islo2")
+text = " Vibration"
+
+[node name="ShakeContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ShakeContainer"]
+layout_mode = 2
+
+[node name="ShakeCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/ShakeContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_islo2")
+theme_override_icons/checked = ExtResource("3_buq30")
+theme_override_icons/unchecked = ExtResource("4_islo2")
+text = " Screen Shake"
+
+[node name="ReturnButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5te1v")
+theme_override_styles/hover = SubResource("StyleBoxFlat_twd5h")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_msiuq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_buq30")
+text = "RETURN"

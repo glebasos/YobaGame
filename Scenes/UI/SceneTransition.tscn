@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://1ch3fj67n4mf"]
+
+[ext_resource type="Script" uid="uid://bhfl5416qnfwq" path="res://Models/UI/SceneTransition.cs" id="1_iqvho"]
+
+[node name="SceneTransition" type="CanvasLayer"]
+script = ExtResource("1_iqvho")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://xg5x1a7bm1ng"]
+
+[ext_resource type="Script" uid="uid://0duwgc8weshb" path="res://Models/ExplosionManager.cs" id="1_pf38q"]
+
+[node name="ExplosionManager" type="Node2D"]
+script = ExtResource("1_pf38q")

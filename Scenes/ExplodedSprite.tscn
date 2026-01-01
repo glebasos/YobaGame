@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dm88xo0sa7o8v"]
+
+[ext_resource type="Script" uid="uid://cefix14mvl3ya" path="res://Models/ExplodedSprite.cs" id="1_r607q"]
+[ext_resource type="Shader" uid="uid://c4hw4mmwy2r2f" path="res://Scenes/Yobas/Explosion.gdshader" id="2_2dntn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q33tl"]
+shader = ExtResource("2_2dntn")
+shader_parameter/fragment_number = Vector2(20, 20)
+shader_parameter/dissolve_state = 1.0
+
+[node name="ExplodedSprite" type="Node2D"]
+script = ExtResource("1_r607q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_q33tl")

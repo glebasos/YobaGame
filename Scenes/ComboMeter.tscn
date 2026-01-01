@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://5sqvg4v56803"]
+
+[ext_resource type="Script" uid="uid://bbm2r46aj10tb" path="res://Models/ComboMeter.cs" id="1_7ginu"]
+
+[node name="ComboMeter" type="Node2D"]
+script = ExtResource("1_7ginu")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0

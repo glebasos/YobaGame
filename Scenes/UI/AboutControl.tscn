@@ -1,0 +1,146 @@
+[gd_scene load_steps=9 format=3 uid="uid://bbelwvbj7bysx"]
+
+[ext_resource type="Script" uid="uid://dojwbm0yy6304" path="res://Models/UI/AboutControl.cs" id="1_bid7s"]
+[ext_resource type="Texture2D" uid="uid://ck52k8067ies0" path="res://Resources/Backgrounds/flat1.jpg" id="2_aguqh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7080n"]
+texture = ExtResource("2_aguqh")
+modulate_color = Color(0.300781, 0.300781, 0.300781, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0fmf"]
+bg_color = Color(0.0833967, 0.0504354, 0.15625, 0.501961)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 20.0
+expand_margin_top = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5te1v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_twd5h"]
+bg_color = Color(0.75, 0.667647, 0.220588, 1)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msiuq"]
+bg_color = Color(0.558594, 0.497258, 0.164292, 1)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_buq30"]
+bg_color = Color(1, 0.890196, 0.294118, 1)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[node name="SettingsControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bid7s")
+
+[node name="BackgroundPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7080n")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -252.0
+offset_right = 384.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m0fmf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MusicContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/MusicContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MusicContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Yoba Game
+Version 1.0.0
+
+Developed by: GlbApps
+
+Made with Godot Engine
+
+https://godotengine.org/
+
+Author: Godot Engine contributors
+
+Licensed under the MIT License, which is available at https://opensource.org/licenses/MIT
+
+Music by Pauloktus – https://vk.com/pauloktus 
+
+Sound Effects – freesound.org
+
+Assets:
+- Some memes and images sourced from public internet forums and imageboards.
+- Attribution is provided where known. If you spot something that’s yours, hit me up at glbsftwr@gmail.com!
+- Game is free, non-commercial, and made for fun.
+
+Memes used under assumed fair use for parody, commentary, or cultural reference.  
+Thanks to the internet for being awesome, weird, and creative.
+
+Special Thanks:
+My friends, testers and the Godot community!
+
+All rights reserved where applicable.
+No copyright infringement intended."
+horizontal_alignment = 1
+
+[node name="ReturnButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5te1v")
+theme_override_styles/hover = SubResource("StyleBoxFlat_twd5h")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_msiuq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_buq30")
+text = "RETURN"

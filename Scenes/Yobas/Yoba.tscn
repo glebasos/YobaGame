@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjpp4bhlmmely"]
+
+[ext_resource type="Script" uid="uid://deo58rk6bl45s" path="res://Models/Yobas/Yoba.cs" id="1_cxymv"]
+[ext_resource type="Texture2D" uid="uid://cpatnw3ipotd4" path="res://Resources/Yobas/YobaClassic.png" id="2_nuijl"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8g8pf"]
+bounce = 0.4
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fn63g"]
+radius = 11.0
+
+[node name="Yoba" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_8g8pf")
+contact_monitor = true
+max_contacts_reported = 6
+script = ExtResource("1_cxymv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0293818, 0.0293818)
+texture = ExtResource("2_nuijl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fn63g")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="OnScreenLeaving"]

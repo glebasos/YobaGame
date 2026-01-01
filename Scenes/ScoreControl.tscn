@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1nr2veh8ll48"]
+
+[ext_resource type="Script" uid="uid://dg4pjya7h326c" path="res://Models/ScoreControl.cs" id="1_1tn67"]
+[ext_resource type="FontFile" uid="uid://dsvapn8hjlu53" path="res://Resources/Fonts/joystix monospace.otf" id="2_3uid6"]
+
+[node name="ScoreControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1tn67")
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 38.0
+theme_override_fonts/font = ExtResource("2_3uid6")
+theme_override_font_sizes/font_size = 30
+text = "10000"
+horizontal_alignment = 2

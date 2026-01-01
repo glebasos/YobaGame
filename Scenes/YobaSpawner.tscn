@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdq24q5cs2vjg"]
+
+[ext_resource type="Script" uid="uid://cn4ndgc2hjoc" path="res://Models/YobaSpawner.cs" id="1_7deh1"]
+
+[node name="YobaSpawner" type="Node2D"]
+script = ExtResource("1_7deh1")

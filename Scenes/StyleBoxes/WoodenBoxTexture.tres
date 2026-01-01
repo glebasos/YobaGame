@@ -1,0 +1,13 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bg0qfnl25wwbs"]
+
+[ext_resource type="Texture2D" uid="uid://7jm0pch76vqy" path="res://Resources/Misc/crate.jpg" id="1_no206"]
+
+[resource]
+texture = ExtResource("1_no206")
+texture_margin_left = 40.0
+texture_margin_right = 40.0
+texture_margin_bottom = 40.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+modulate_color = Color(1, 0.911077, 0.602099, 1)
+draw_center = false

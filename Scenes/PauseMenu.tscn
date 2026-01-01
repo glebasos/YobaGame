@@ -1,0 +1,126 @@
+[gd_scene load_steps=9 format=3 uid="uid://cv01rbfyojobn"]
+
+[ext_resource type="Script" uid="uid://dm5i1bq5dnvhy" path="res://Models/PauseMenu.cs" id="1_qwhev"]
+[ext_resource type="Texture2D" uid="uid://ck52k8067ies0" path="res://Resources/Backgrounds/flat1.jpg" id="2_8saeu"]
+[ext_resource type="PackedScene" uid="uid://bcq1xprtapkt2" path="res://Scenes/UI/SettingsControl.tscn" id="3_5w4ur"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ghw46"]
+texture = ExtResource("2_8saeu")
+modulate_color = Color(0.300781, 0.300781, 0.300781, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_853f1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_853f1"]
+bg_color = Color(0.75, 0.667647, 0.220588, 1)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8saeu"]
+bg_color = Color(0.558594, 0.497258, 0.164292, 1)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_df05h"]
+bg_color = Color(1, 0.890196, 0.294118, 1)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qwhev")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ghw46")
+
+[node name="SettingsContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -156.0
+offset_right = 256.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="BackButton" type="Button" parent="SettingsContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_853f1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_853f1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8saeu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_df05h")
+text = "BACK"
+
+[node name="SettingsButton" type="Button" parent="SettingsContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_853f1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_853f1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8saeu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_df05h")
+text = "SETTINGS"
+
+[node name="MainMenuButton" type="Button" parent="SettingsContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_853f1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_853f1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8saeu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_df05h")
+text = "MAIN MENU"
+
+[node name="SettingsControl" parent="." instance=ExtResource("3_5w4ur")]
+visible = false
+layout_mode = 1
